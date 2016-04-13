@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ConditionWatcherExample</string>
+
+    <string name="button_start">Start</string>
+    <string name="server_loading">Connecting to %1$s:%2$s</string>
+
 </resources>
