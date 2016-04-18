@@ -1,4 +1,4 @@
-package com.azimolabs.f1sherkk.conditionwatcherexample.conditionWatcher;
+package com.azimolabs.conditionwatcher;
 
 import android.os.Bundle;
 

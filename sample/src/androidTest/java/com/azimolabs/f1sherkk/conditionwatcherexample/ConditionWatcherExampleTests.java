@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.azimolabs.f1sherkk.conditionwatcherexample.conditionWatcher.ConditionWatcher;
+import com.azimolabs.conditionwatcher.ConditionWatcher;
 import com.azimolabs.f1sherkk.conditionwatcherexample.data.Server;
 import com.azimolabs.f1sherkk.conditionwatcherexample.instruction.BtnStartAnimationInstruction;
 import com.azimolabs.f1sherkk.conditionwatcherexample.instruction.LoadingDialogInstruction;

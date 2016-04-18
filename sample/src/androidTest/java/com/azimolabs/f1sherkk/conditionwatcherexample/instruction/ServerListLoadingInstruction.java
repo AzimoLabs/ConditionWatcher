@@ -1,20 +1,21 @@
 package com.azimolabs.f1sherkk.conditionwatcherexample.instruction;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.support.test.InstrumentationRegistry;
+import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.azimolabs.f1sherkk.conditionwatcherexample.conditionWatcher.Instruction;
-import com.azimolabs.f1sherkk.conditionwatcherexample.ui.dialog.LoadingDialog;
+import com.azimolabs.conditionwatcher.Instruction;
+import com.azimolabs.f1sherkk.conditionwatcherexample.R;
 import com.azimolabs.f1sherkk.conditionwatcherexample.utils.TestApplication;
 
 /**
  * Created by F1sherKK on 15/04/16.
  */
-public class LoadingDialogInstruction extends Instruction {
+public class ServerListLoadingInstruction extends Instruction {
+
     @Override
     public String getDescription() {
-        return "Loading dialog shouldn't be in view hierarchy";
+        return "SwipeRefreshLayout should finish refreshing and disappear";
     }
 
     @Override
@@ -23,7 +24,7 @@ public class LoadingDialogInstruction extends Instruction {
                 InstrumentationRegistry.getTargetContext().getApplicationContext()).getCurrentActivity();
         if (activity == null) return false;
 
-        DialogFragment f = (DialogFragment) activity.getFragmentManager().findFragmentByTag(LoadingDialog.TAG);
-        return f == null;
+        SwipeRefreshLayout srItemList = (SwipeRefreshLayout) activity.findViewById(R.id.srItemList);
+        return srItemList != null && !srItemList.isRefreshing();
     }
 }

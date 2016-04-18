@@ -1,4 +1,4 @@
-package com.azimolabs.f1sherkk.conditionwatcherexample.conditionWatcher;
+package com.azimolabs.conditionwatcher;
 
 /**
  * Created by F1sherKK on 08/10/15.
@@ -31,21 +31,19 @@ public class ConditionWatcher {
     public static void waitForCondition(Instruction instruction) throws Exception {
         int status = CONDITION_NOT_MET;
         int elapsedTime = 0;
-        boolean isConditionMet;
 
         do {
-            isConditionMet = instruction.checkCondition();
-            if (isConditionMet) {
+            if (instruction.checkCondition()) {
                 status = CONDITION_MET;
+            } else {
+                elapsedTime += getInstance().watchInterval;
+                Thread.sleep(getInstance().watchInterval);
             }
 
-            elapsedTime += getInstance().watchInterval;
-            Thread.sleep(getInstance().watchInterval);
             if (elapsedTime == getInstance().timeoutLimit) {
                 status = TIMEOUT;
                 break;
             }
-
         } while (status != CONDITION_MET);
 
         if (status == TIMEOUT)
