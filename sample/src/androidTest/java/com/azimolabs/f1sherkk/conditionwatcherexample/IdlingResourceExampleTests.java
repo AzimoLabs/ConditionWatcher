@@ -63,13 +63,13 @@ public class IdlingResourceExampleTests {
         // ListActivity
         Espresso.registerIdlingResources(serverListLoadingIdlingResource);
         onData(anything()).inAdapterView(withId(R.id.lvList)).atPosition(2).perform(click());
-        Espresso.registerIdlingResources(serverListLoadingIdlingResource);
+        Espresso.unregisterIdlingResources(serverListLoadingIdlingResource);
 
         // DetailsActivity
         Espresso.registerIdlingResources(loadingDialogIdlingResource);
         onView(withText(thirdServer.getName())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getAddress())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getPort())).check(matches(isDisplayed()));
-        Espresso.registerIdlingResources(serverListLoadingIdlingResource);
+        Espresso.unregisterIdlingResources(serverListLoadingIdlingResource);
     }
 }
