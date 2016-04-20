@@ -44,20 +44,16 @@ public class ConditionWatcherExampleTests {
         List<Server> servers = DataProvider.generateServerList();
         Server thirdServer = servers.get(2);
 
-        BtnStartAnimationInstruction btnStartAnimationInstruction = new BtnStartAnimationInstruction();
-        ServerListLoadingInstruction serverListLoadingInstruction = new ServerListLoadingInstruction();
-        LoadingDialogInstruction loadingDialogInstruction = new LoadingDialogInstruction();
-
-        // Click on btnStart
-        ConditionWatcher.waitForCondition(btnStartAnimationInstruction);
+        // SplashActivity
+        ConditionWatcher.waitForCondition(new BtnStartAnimationInstruction());
         onView(withId(R.id.btnStart)).perform(click());
 
-        // Click on the 3rd item of listView
-        ConditionWatcher.waitForCondition(serverListLoadingInstruction);
+        // ListActivity
+        ConditionWatcher.waitForCondition(new ServerListLoadingInstruction());
         onData(anything()).inAdapterView(withId(R.id.lvList)).atPosition(2).perform(click());
 
-        // Assert details displayed
-        ConditionWatcher.waitForCondition(loadingDialogInstruction);
+        // DetailsActivity
+        ConditionWatcher.waitForCondition(new LoadingDialogInstruction());
         onView(withText(thirdServer.getName())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getAddress())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getPort())).check(matches(isDisplayed()));

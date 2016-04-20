@@ -28,6 +28,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         bindViews();
         initData(savedInstanceState);
+
         loadData();
     }
 

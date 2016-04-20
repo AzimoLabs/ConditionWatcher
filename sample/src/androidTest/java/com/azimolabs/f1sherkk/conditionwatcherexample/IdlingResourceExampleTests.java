@@ -55,17 +55,17 @@ public class IdlingResourceExampleTests {
         ServerListLoadingIdlingResource serverListLoadingIdlingResource = new ServerListLoadingIdlingResource();
         LoadingDialogIdlingResource loadingDialogIdlingResource = new LoadingDialogIdlingResource();
 
-        // Click on btnStart
+        // SplashActivity
         Espresso.registerIdlingResources(btnStartAnimationIdlingResource);
         onView(withId(R.id.btnStart)).perform(click());
         Espresso.unregisterIdlingResources(btnStartAnimationIdlingResource);
 
-        // Click on the 3rd item of listView
+        // ListActivity
         Espresso.registerIdlingResources(serverListLoadingIdlingResource);
         onData(anything()).inAdapterView(withId(R.id.lvList)).atPosition(2).perform(click());
         Espresso.registerIdlingResources(serverListLoadingIdlingResource);
 
-        // Assert details displayed
+        // DetailsActivity
         Espresso.registerIdlingResources(loadingDialogIdlingResource);
         onView(withText(thirdServer.getName())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getAddress())).check(matches(isDisplayed()));
