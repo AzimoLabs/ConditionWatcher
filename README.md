@@ -1,6 +1,6 @@
 # ConditionWatcher
 
-Simple class created in order to make Android automation testing easier, faster, cleaner and more intuitive. It synchronizes operations that might occur on any thread - with test thread. ConditionWatcher can be used as a replacement to Espresso's IdlingResources or it can work in pararell with them.
+Simple class created in order to make Android automation testing easier, faster, cleaner and more intuitive. It synchronizes operations that might occur on any thread - with test thread. ConditionWatcher can be used as a replacement to Espresso's IdlingResources or it can work in parallel with them.
 
 When we started our adventure with Android Espresso, we came across with various problems connected to IdlingResources. Before we were able to understand how Espresso works on lower layer and explain behaviour of IdlingResources, we created our own tool beforehand and based tests on it. As we can see now principle of operation is very similar, yet we would like present to you perks of ConditionWatcher as they might become useful to you.
 
