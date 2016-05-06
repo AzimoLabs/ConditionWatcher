@@ -71,10 +71,10 @@ Full code can be found in provided sample project. It also contains the same tes
 You are provided with `setWatchInterval()` method which allows you to change interval with which `ConditionWatcher` checks if all conditions are met and if test can continue. In comparison to `IdlingResource` if method `isIdleNow()` returns false, framework waits 5 seconds before it checks your condition again. It doesn't only limits your options but also forces test to wait without real need. 
 
 ##### - It is clean! - reduce number of lines in your code
-`ConditionWatcher`'s wait `Instruction` objects are reusable. Consequently you don't need to unregister them before next usage. `IdlingResource` is added to `List` stored in  `IdlingResourcePolicy` class. That List can't store two objects with the same name. Furthermore once `IdlingResource` is idled, it becomes unusable until you unregister it and register again.
+`ConditionWatcher`'s wait `Instruction` objects are reusable. Consequently you don't need to unregister them before next usage. `IdlingResource` is added to `List` stored in  `IdlingResourceRegistry` class. That List can't store two objects with the same name. Furthermore once `IdlingResource` is idled, it becomes unusable until you unregister it and register again.
 
 ##### - Less restrictions! - you are the master of your own test
-`IdlingResource` after registered within `IdlingResourcePolicy` starts to wait for app's idle state only after Espresso method was called within test. So you have to use either `onView()` or `onData()` or `assertThat()` to wait for idle. `ConditionWatcher` is not connected to Espresso framework. It uses simple `Thread.sleep()` method which makes your <b>test thread</b> to wait until condition is met. You can decide what to wait for, how and when.
+`IdlingResource` after registered within `IdlingResourceRegistry` starts to wait for app's idle state only after Espresso method was called within test. So you have to use either `onView()` or `onData()` to wait for idle. `ConditionWatcher` is not connected to Espresso framework. It uses simple `Thread.sleep()` method which makes your <b>test thread</b> to wait until condition is met. You can decide what to wait for, how and when.
 
 ##### - It is easy! - be creative, modify the way you like
 
