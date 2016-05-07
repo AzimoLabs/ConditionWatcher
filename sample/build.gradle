@@ -40,5 +40,5 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
     }
 
-    androidTestCompile project(':conditionwatcher')
+    androidTestCompile 'com.azimolabs.conditionwatcher:conditionwatcher:0.1'
 }
