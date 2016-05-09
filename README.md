@@ -86,8 +86,6 @@ You don't have to be worried of unexpected behaviours. `ConditionWatcher` will s
 
 ## Download
 
-### Java code
-
 ### Library dependency
 
 ```gradle
@@ -95,6 +93,8 @@ dependencies {
   androidTestCompile 'com.azimolabs.conditionwatcher:conditionwatcher:0.1'
 }
 ```
+
+### Java code
 
 If you don't want to add another dependency to your project, just copy [ConditionWatcher.java](https://github.com/AzimoLabs/ConditionWatcher/blob/master/conditionwatcher/src/main/java/com/azimolabs/conditionwatcher/ConditionWatcher.java) and [Instruction.java](https://github.com/AzimoLabs/ConditionWatcher/blob/master/conditionwatcher/src/main/java/com/azimolabs/conditionwatcher/Instruction.java) classes to your source directory.
 
