@@ -4,6 +4,20 @@ Simple class created in order to make Android automation testing easier, faster,
 
 When we started our adventure with Android Espresso, we came across with various problems connected to IdlingResources. Before we were able to understand how Espresso works on lower layer and explain behaviour of IdlingResources, we created our own tool beforehand and based tests on it. As we can see now principle of operation is very similar, yet we would like present to you perks of ConditionWatcher as they might become useful to you.
 
+## Quick Start
+If you want to check how ConditionWatcher works by yourself, you can run tests included in sample project.
+
+1. Pull ConditionWatcher project from GitHub
+2. Connect Android device or start AVD.
+3. Run [test examples](https://github.com/AzimoLabs/ConditionWatcher/tree/master/sample/src/androidTest/java/com/azimolabs/f1sherkk/conditionwatcherexample) included in sample project by:
+	
+	a) <b>Android Studio</b> - locate test files: <i>ConditionWatcherExampleTests.java</i> and <i>IdlingResourceExampleTests.java</i>. Select test class that you want to launch. Choose `Run` task from menu that appears after right-clicking it.
+	
+	![TestPackage](https://raw.githubusercontent.com/AzimoLabs/ConditionWatcher/master/art/testPackage.png) 	
+	
+	b) <b>Command line</b> - open terminal and change directory to the root of the ConditionWatcher project. Execute `./gradlew sample:connectedCheck` to run whole test suite. 
+
+
 ## Usage
 
 ConditionWatcher doesn't need any setup. After classes are added to your project you are ready to go. 
@@ -83,19 +97,6 @@ You are provided with `setWatchInterval()` method which allows you to change int
 ##### - It is intuitive! - there is no black box part
 
 You don't have to be worried of unexpected behaviours. `ConditionWatcher` will stop waiting for your condition instantly after method `checkCondition()` returns true.  If you haven't noticed it yet, `IdlingResource`'s method `isIdleNow()` is still being called a few times (with ~1ms interval) after it returns true. 
-
-## Quick Start
-If you want to check how ConditionWatcher works by yourself, you can run tests included in sample project.
-
-1. Pull ConditionWatcher project from GitHub
-2. Connect Android device or start AVD.
-3. Run [test examples](https://github.com/AzimoLabs/ConditionWatcher/tree/master/sample/src/androidTest/java/com/azimolabs/f1sherkk/conditionwatcherexample) included in sample project by:
-	
-	a) <b>Android Studio</b> - locate test files: <i>ConditionWatcherExampleTests.java</i> and <i>IdlingResourceExampleTests.java</i>. Select test class that you want to launch. Choose `Run` task from menu that appears after right-clicking it.
-	
-	![TestPackage](https://raw.githubusercontent.com/AzimoLabs/ConditionWatcher/master/art/testPackage.png) 	
-	
-	b) <b>Command line</b> - open terminal and change directory to the root of the ConditionWatcher project. Execute `./gradlew sample:connectedCheck` to run whole test suite. 
 
 ## Download
 
