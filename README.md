@@ -13,7 +13,7 @@ Singleton which is automatically created after call to any of it's methods. It i
 
 
 ##### Instruction.java - informs what to wait for
-It provides ConditionWatcher with information what should be scanned and when conditions are met. ConditionWatcher will keep calling Instrucion's `checkCondition()` method with interval until it returns true. Furthermore Instruction contains `getDescription()` method where you can place your additional your own additional logs (for example dump of elements connected to your current wait). 
+It provides ConditionWatcher with information what should be scanned and when conditions are met. ConditionWatcher will keep calling Instrucion's `checkCondition()` method with interval until it returns true. Furthermore Instruction contains `getDescription()` method where you can place additional logs (for example dump of elements connected to your current wait). 
 
 ConditionWatcher in test code looks like that:
 
