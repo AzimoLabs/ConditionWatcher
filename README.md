@@ -4,6 +4,8 @@ Simple class created in order to make Android automation testing easier, faster,
 
 When we started our adventure with Android Espresso, we came across with various problems connected to IdlingResources. Before we were able to understand how Espresso works on lower layer and explain behaviour of IdlingResources, we created our own tool beforehand and based tests on it. As we can see now principle of operation is very similar, yet we would like present to you perks of ConditionWatcher as they might become useful to you.
 
+Related article: [Wait for it… IdlingResource and ConditionWatcher](https://medium.com/azimolabs/wait-for-it-idlingresource-and-conditionwatcher-602055f32356#.ja9nytoe9)
+
 ## Quick Start
 If you want to check how ConditionWatcher works by yourself, you can run tests included in sample project.
 
