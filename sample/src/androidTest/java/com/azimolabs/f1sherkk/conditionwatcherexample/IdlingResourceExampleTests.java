@@ -34,7 +34,8 @@ import static org.hamcrest.Matchers.anything;
 public class IdlingResourceExampleTests {
 
     @Rule
-    public ActivityTestRule<SplashActivity> activityRule = new ActivityTestRule<>(SplashActivity.class, false, false);
+    public ActivityTestRule<SplashActivity> activityRule =
+            new ActivityTestRule<>(SplashActivity.class, false, false);
 
     @Before
     public void setUp() {
@@ -71,5 +72,18 @@ public class IdlingResourceExampleTests {
         onView(withText(thirdServer.getAddress())).check(matches(isDisplayed()));
         onView(withText(thirdServer.getPort())).check(matches(isDisplayed()));
         Espresso.unregisterIdlingResources(serverListLoadingIdlingResource);
+    }
+
+    @Test
+    public void test() throws Exception {
+        BtnStartAnimationIdlingResource btnStartAnimationIdlingResource = new BtnStartAnimationIdlingResource();
+
+        // SplashActivity
+        Espresso.registerIdlingResources(btnStartAnimationIdlingResource);
+        onView(withId(R.id.btnStart)).perform(click());
+        Espresso.unregisterIdlingResources(btnStartAnimationIdlingResource);
+
+        // ListActivity
+        onData(anything()).inAdapterView(withId(R.id.lvList)).atPosition(2).perform(click());
     }
 }
