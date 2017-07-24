@@ -40,7 +40,7 @@ public class ConditionWatcher {
                 Thread.sleep(getInstance().watchInterval);
             }
 
-            if (elapsedTime == getInstance().timeoutLimit) {
+            if (elapsedTime >= getInstance().timeoutLimit) {
                 status = TIMEOUT;
                 break;
             }
