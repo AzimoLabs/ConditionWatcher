@@ -49,7 +49,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = 'maven'
-        name = 'conditionwatcher'
+        name = 'ConditionWatcher'
         desc = POM_DESCRIPTION
         websiteUrl = POM_URL
         vcsUrl = GIT_URL
