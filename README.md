@@ -108,7 +108,7 @@ You don't have to be worried of unexpected behaviours. `ConditionWatcher` will s
 
 ```gradle
 dependencies {
-  androidTestCompile 'com.azimolabs.conditionwatcher:conditionwatcher:0.2'
+  androidTestImplementation 'com.azimolabs.conditionwatcher:conditionwatcher:0.2'
 }
 ```
 
