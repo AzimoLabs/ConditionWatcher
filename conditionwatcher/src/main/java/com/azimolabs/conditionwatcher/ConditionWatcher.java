@@ -29,6 +29,14 @@ public class ConditionWatcher {
     }
 
     public static void waitForCondition(Instruction instruction) throws Exception {
+        waitForCondition(instruction, getInstance().timeoutLimit, getInstance().watchInterval);
+    }
+    
+    public static void waitForCondition(Instruction instruction, int timeoutLimit) throws Exception {
+        waitForCondition(instruction, timeoutLimit, getInstance().watchInterval);
+    }
+
+    public static void waitForCondition(Instruction instruction, int timeoutLimit, int watchInterval) throws Exception {
         int status = CONDITION_NOT_MET;
         int elapsedTime = 0;
 
@@ -36,18 +44,18 @@ public class ConditionWatcher {
             if (instruction.checkCondition()) {
                 status = CONDITION_MET;
             } else {
-                elapsedTime += getInstance().watchInterval;
-                Thread.sleep(getInstance().watchInterval);
+                elapsedTime += watchInterval;
+                Thread.sleep(watchInterval);
             }
 
-            if (elapsedTime >= getInstance().timeoutLimit) {
+            if (elapsedTime >= timeoutLimit) {
                 status = TIMEOUT;
                 break;
             }
         } while (status != CONDITION_MET);
 
         if (status == TIMEOUT)
-            throw new Exception(instruction.getDescription() + " - took more than " + getInstance().timeoutLimit/1000 + " seconds. Test stopped.");
+            throw new Exception(instruction.getDescription() + " - took more than " + timeoutLimit/1000 + " seconds. Test stopped.");
     }
 
     public static void setWatchInterval(int watchInterval) {
